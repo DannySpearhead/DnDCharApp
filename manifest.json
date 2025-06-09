@@ -65,7 +65,7 @@
       "name": "Character Stats",
       "short_name": "Stats",
       "description": "View character statistics and abilities",
-      "url": "/?page=stats",
+      "url": "/DnDCharApp/?page=stats",
       "icons": [
         {
           "src": "assets/icons/icon-96x96.png",
@@ -77,7 +77,7 @@
       "name": "Equipment",
       "short_name": "Equipment",
       "description": "Manage character equipment and inventory",
-      "url": "/?page=equipment",
+      "url": "/DnDCharApp/?page=equipment",
       "icons": [
         {
           "src": "assets/icons/icon-96x96.png",
@@ -89,7 +89,7 @@
       "name": "Spells",
       "short_name": "Spells",
       "description": "Manage spells and spell slots",
-      "url": "/?page=spells",
+      "url": "/DnDCharApp/?page=spells",
       "icons": [
         {
           "src": "assets/icons/icon-96x96.png",
@@ -101,7 +101,7 @@
       "name": "Notes",
       "short_name": "Notes",
       "description": "Character backstory and campaign notes",
-      "url": "/?page=notes",
+      "url": "/DnDCharApp/?page=notes",
       "icons": [
         {
           "src": "assets/icons/icon-96x96.png",
