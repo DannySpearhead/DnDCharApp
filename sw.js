@@ -8,17 +8,18 @@ const DATA_CACHE_NAME = 'dnd-data-cache-v1.0.0';
 // Files to cache for offline functionality
 const FILES_TO_CACHE = [
   '/',
-  '/index.html',
-  '/css/style.css',
-  '/js/main.js',
-  '/data/stats.html',
-  '/data/equipment.html',
-  '/data/spells_skills.html',
-  '/data/notes.html',
-  '/manifest.json',
+  '/DnDCharApp/',
+  '/DnDCharApp/index.html',
+  '/DnDCharApp/css/style.css',
+  '/DnDCharApp/js/main.js',
+  '/DnDCharApp/data/stats.html',
+  '/DnDCharApp/data/equipment.html',
+  '/DnDCharApp/data/spells_skills.html',
+  '/DnDCharApp/data/notes.html',
+  '/DnDCharApp/manifest.json',
   // Add your icons when you create them
-  '/assets/icons/icon-192x192.png',
-  '/assets/icons/icon-512x512.png'
+  '/DnDCharApp/assets/icons/icon-192x192.png',
+  '/DnDCharApp/assets/icons/icon-512x512.png'
 ];
 
 // D&D SRD and rules data (these could be added later)
