@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spells & Skills</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="spells-container">
+        <!-- Spellcasting Info -->
+        <section class="spellcasting-header">
+            <h2>✨ Spellcasting</h2>
+            
+            <div class="spellcasting-stats">
+                <div class="spellcasting-ability">
+                    <label>Spellcasting Ability:</label>
+                    <select id="spellcasting-ability">
+                        <option value="">None</option>
+                        <option value="int">Intelligence</option>
+                        <option value="wis">Wisdom</option>
+                        <option value="cha">Charisma</option>
+                    </select>
+                </div>
+                
+                <div class="spell-stats-grid">
+                    <div class="spell-stat">
+                        <label>Spellcasting Modifier:</label>
+                        <input type="number" id="spell-modifier" readonly class="spell-stat-input">
+                    </div>
+                    <div class="spell-stat">
+                        <label>Spell Save DC:</label>
+                        <input type="number" id="spell-save-dc" readonly class="spell-stat-input">
+                    </div>
+                    <div class="spell-stat">
+                        <label>Spell Attack Bonus:</label>
+                        <input type="text" id="spell-attack-bonus" readonly class="spell-stat-input">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spell Slots -->
+        <section class="spell-slots-section">
+            <h3>🎲 Spell Slots</h3>
+            
+            <div class="spell-slots-grid">
+                <div class="spell-level-slot">
+                    <h4>Level 1</h4>
+                    <div class="slot-tracker">
+                        <label>Total:</label>
+                        <input type="number" id="level1-total" value="0" min="0" max="4" class="slot-input">
+                        <label>Expended:</label>
+                        <input type="number" id="level1-expended" value="0" min="0" class="slot-input">
+                    </div>
+                    <div class="slot-checkboxes" id="level1-boxes"></div>
+                </div>
+
+                <div class="spell-level-slot">
+                    <h4>Level 2</h4>
+                    <div class="slot-tracker">
+                        <label>Total:</label>
+                        <input type="number" id="level2-total" value="0" min="0" max="3" class="slot-input">
+                        <label>Expended:</label>
+                        <input type="number" id="level2-expended" value="0" min="0" class="slot-input">
+                    </div>
+                    <div class="slot-checkboxes" id="level2-boxes"></div>
+                </div>
+
+                <div class="spell-level-slot">
+                    <h4>Level 3</h4>
+                    <div class="slot-tracker">
+                        <label>Total:</label>
+                        <input type="number" id="level3-total" value="0" min="0" max="3" class="slot-input">
+                        <label>Expended:</label>
+                        <input type="number" id="level3-expended" value="0" min="0" class="slot-input">
+                    </div>
+                    <div class="slot-checkboxes" id="level3-boxes"></div>
+                </div>
+
+                <div class="spell-level-slot">
+                    <h4>Level 4</h4>
+                    <div class="slot-tracker">
+                        <label>Total:</label>
+                        <input type="number" id="level4-total" value="0" min="0" max="3" class="slot-input">
+                        <label>Expended:</label>
+                        <input type="number" id="level4-expended" value="0" min="0" class="slot-input">
+                    </div>
+                    <div class="slot-checkboxes" id="level4-boxes"></div>
+                </div>
+
+                <div class="spell-level-slot">
+                    <h4>Level 5</h4>
+                    <div class="slot-tracker">
+                        <label>Total:</label>
+                        <input type="number" id="level5-total" value="0" min="0" max="3" class="slot-input">
+                        <label>Expended:</label>
+                        <input type="number" id="level5-expended" value="0" min="0" class="slot-input">
+                    </div>
+                    <div class="slot-checkboxes" id="level5-boxes"></div>
+                </div>
+
+                <div class="spell-level-slot">
+                    <h4>Level 6</h4>
+                    <div class="slot-tracker">
+                        <label>Total:</label>
+                        <input type="number" id="level6-total" value="0" min="0" max="1" class="slot-input">
+                        <label>Expended:</label>
+                        <input type="number" id="level6-expended" value="0" min="0" class="slot-input">
+                    </div>
+                    <div class="slot-checkboxes" id="level6-boxes"></div>
+                </div>
+
+                <div class="spell-level-slot">
+                    <h4>Level 7</h4>
+                    <div class="slot-tracker">
+                        <label>Total:</label>
+                        <input type="number" id="level7-total" value="0" min="0" max="1" class="slot-input">
+                        <label>Expended:</label>
+                        <input type="number" id="level7-expended" value="0" min="0" class="slot-input">
+                    </div>
+                    <div class="slot-checkboxes" id="level7-boxes"></div>
+                </div>
+
+                <div class="spell-level-slot">
+                    <h4>Level 8</h4>
+                    <div class="slot-tracker">
+                        <label>Total:</label>
+                        <input type="number" id="level8-total" value="0" min="0" max="1" class="slot-input">
+                        <label>Expended:</label>
+                        <input type="number" id="level8-expended" value="0" min="0" class="slot-input">
+                    </div>
+                    <div class="slot-checkboxes" id="level8-boxes"></div>
+                </div>
+
+                <div class="spell-level-slot">
+                    <h4>Level 9</h4>
+                    <div class="slot-tracker">
+                        <label>Total:</label>
+                        <input type="number" id="level9-total" value="0" min="0" max="1" class="slot-input">
+                        <label>Expended:</label>
+                        <input type="number" id="level9-expended" value="0" min="0" class="slot-input">
+                    </div>
+                    <div class="slot-checkboxes" id="level9-boxes"></div>
+                </div>
+            </div>
+
+            <div class="spell-slot-actions">
+                <button onclick="shortRest()" class="rest-btn">Short Rest</button>
+                <button onclick="longRest()" class="rest-btn">Long Rest</button>
+                <button onclick="resetAllSlots()" class="reset-btn">Reset All Slots</button>
+            </div>
+        </section>
+
+        <!-- Cantrips & Prepared Spells -->
+        <section class="spells-list-section">
+            <h3>📜 Cantrips & Prepared Spells</h3>
+            
+            <!-- Cantrips -->
+            <div class="cantrips-section">
+                <h4>Cantrips (At Will)</h4>
+                <div class="spell-list">
+                    <div class="spell-header">
+                        <span>Name</span>
+                        <span>Casting Time</span>
+                        <span>Range</span>
+                        <span>Components</span>
+                        <span>Notes</span>
+                    </div>
+                    
+                    <div class="spell-entry">
+                        <input type="text" placeholder="Cantrip name" class="spell-name">
+                        <input type="text" placeholder="1 action" class="spell-casting-time">
+                        <input type="text" placeholder="60 feet" class="spell-range">
+                        <div class="components">
+                            <label><input type="checkbox" class="component-checkbox"> V</label>
+                            <label><input type="checkbox" class="component-checkbox"> S</label>
+                            <label><input type="checkbox" class="component-checkbox"> M</label>
+                        </div>
+                        <input type="text" placeholder="Notes/Description" class="spell-notes">
+                    </div>
+                    
+                    <div class="spell-entry">
+                        <input type="text" placeholder="Cantrip name" class="spell-name">
+                        <input type="text" placeholder="1 action" class="spell-casting-time">
+                        <input type="text" placeholder="60 feet" class="spell-range">
+                        <div class="components">
+                            <label><input type="checkbox" class="component-checkbox"> V</label>
+                            <label><input type="checkbox" class="component-checkbox"> S</label>
+                            <label><input type="checkbox" class="component-checkbox"> M</label>
+                        </div>
+                        <input type="text" placeholder="Notes/Description" class="spell-notes">
+                    </div>
+
+                    <div class="spell-entry">
+                        <input type="text" placeholder="Cantrip name" class="spell-name">
+                        <input type="text" placeholder="1 action" class="spell-casting-time">
+                        <input type="text" placeholder="60 feet" class="spell-range">
+                        <div class="components">
+                            <label><input type="checkbox" class="component-checkbox"> V</label>
+                            <label><input type="checkbox" class="component-checkbox"> S</label>
+                            <label><input type="checkbox" class="component-checkbox"> M</label>
+                        </div>
+                        <input type="text" placeholder="Notes/Description" class="spell-notes">
+                    </div>
+                </div>
+                <button onclick="addCantrip()" class="add-spell-btn">➕ Add Cantrip</button>
+            </div>
+
+            <!-- Prepared Spells -->
+            <div class="prepared-spells-section">
+                <h4>Prepared Spells</h4>
+                <div class="prepared-spells-list" id="prepared-spells-list">
+                    <div class="spell-level-group">
+                        <h5>Level 1 Spells</h5>
+                        <div class="level-spells" data-level="1">
+                            <div class="prepared-spell-entry">
+                                <input type="text" placeholder="Spell name" class="spell-name">
+                                <input type="text" placeholder="1 action" class="spell-casting-time">
+                                <input type="text" placeholder="Range" class="spell-range">
+                                <div class="components">
+                                    <label><input type="checkbox"> V</label>
+                                    <label><input type="checkbox"> S</label>
+                                    <label><input type="checkbox"> M</label>
+                                </div>
+                                <label class="concentration-label">
+                                    <input type="checkbox" class="concentration-checkbox"> Concentration
+                                </label>
+                                <label class="ritual-label">
+                                    <input type="checkbox" class="ritual-checkbox"> Ritual
+                                </label>
+                                <textarea placeholder="Spell description and notes..." rows="2" class="spell-description"></textarea>
+                                <button onclick="removeSpell(this)" class="remove-spell-btn">❌</button>
+                            </div>
+                        </div>
+                        <button onclick="addPreparedSpell(1)" class="add-spell-btn">➕ Add Level 1 Spell</button>
+                    </div>
+
+                    <div class="spell-level-group">
+                        <h5>Level 2 Spells</h5>
+                        <div class="level-spells" data-level="2">
+                            <!-- Level 2 spells will be added here -->
+                        </div>
+                        <button onclick="addPreparedSpell(2)" class="add-spell-btn">➕ Add Level 2 Spell</button>
+                    </div>
+
+                    <div class="spell-level-group">
+                        <h5>Level 3 Spells</h5>
+                        <div class="level-spells" data-level="3">
+                            <!-- Level 3 spells will be added here -->
+                        </div>
+                        <button onclick="addPreparedSpell(3)" class="add-spell-btn">➕ Add Level 3 Spell</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Language & Proficiencies -->
+        <section class="languages-section">
+            <h3>🗣️ Languages & Additional Proficiencies</h3>
+            
+            <div class="languages-grid">
+                <div class="languages-box">
+                    <h4>Languages</h4>
+                    <textarea placeholder="Common, Elvish, Draconic..." rows="4" id="languages"></textarea>
+                </div>
+                
+                <div class="skill-proficiencies-box">
+                    <h4>Skill Expertise</h4>
+                    <p class="expertise-info">Skills you have expertise in (double proficiency bonus):</p>
+                    <textarea placeholder="List skills with expertise..." rows="4" id="expertise"></textarea>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Generate spell slot checkboxes
+        function generateSlotBoxes(level, total) {
+            const container = document.getElementById(`level${level}-boxes`);
+            container.innerHTML = '';
+            
+            for (let i = 0; i < total; i++) {
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.className = 'slot-checkbox';
+                checkbox.id = `level${level}-slot${i + 1}`;
+                
+                const label = document.createElement('label');
+                label.htmlFor = checkbox.id;
+                label.appendChild(checkbox);
+                label.appendChild(document.createTextNode(` Slot ${i + 1}`));
+                
+                container.appendChild(label);
+            }
+        }
+
+        // Update spell slot boxes when total changes
+        function updateSlotBoxes() {
+            for (let level = 1; level <= 9; level++) {
+                const totalInput = document.getElementById(`level${level}-total`);
+                const total = parseInt(totalInput.value) || 0;
+                generateSlotBoxes(level, total);
+            }
+        }
+
+        // Short rest - recover some spell slots based on class
+        function shortRest() {
+            alert('Short rest completed! (Some classes may recover spell slots - update manually if applicable)');
+        }
+
+        // Long rest - recover all spell slots
+        function longRest() {
+            if (confirm('Take a long rest? This will restore all spell slots.')) {
+                for (let level = 1; level <= 9; level++) {
+                    const checkboxes = document.querySelectorAll(`#level${level}-boxes input[type="checkbox"]`);
+                    checkboxes.forEach(checkbox => checkbox.checked = false);
+                    document.getElementById(`level${level}-expended`).value = 0;
+                }
+                alert('Long rest completed! All spell slots restored.');
+            }
+        }
+
+        // Reset all spell slots
+        function resetAllSlots() {
+            if (confirm('Reset all spell slots to full?')) {
+                longRest();
+            }
+        }
+
+        // Add cantrip
+        function addCantrip() {
+            const container = document.querySelector('.cantrips-section .spell-list');
+            const newCantrip = document.createElement('div');
+            newCantrip.className = 'spell-entry';
+            newCantrip.innerHTML = `
+                <input type="text" placeholder="Cantrip name" class="spell-name">
+                <input type="text" placeholder="1 action" class="spell-casting-time">
+                <input type="text" placeholder="60 feet" class="spell-range">
+                <div class="components">
+                    <label><input type="checkbox" class="component-checkbox"> V</label>
+                    <label><input type="checkbox" class="component-checkbox"> S</label>
+                    <label><input type="checkbox" class="component-checkbox"> M</label>
+                </div>
+                <input type="text" placeholder="Notes/Description" class="spell-notes">
+                <button onclick="removeSpell(this)" class="remove-spell-btn">❌</button>
+            `;
+            container.appendChild(newCantrip);
+        }
+
+        // Add prepared spell
+        function addPreparedSpell(level) {
+            const container = document.querySelector(`[data-level="${level}"]`);
+            const newSpell = document.createElement('div');
+            newSpell.className = 'prepared-spell-entry';
+            newSpell.innerHTML = `
+                <input type="text" placeholder="Spell name" class="spell-name">
+                <input type="text" placeholder="1 action" class="spell-casting-time">
+                <input type="text" placeholder="Range" class="spell-range">
+                <div class="components">
+                    <label><input type="checkbox"> V</label>
+                    <label><input type="checkbox"> S</label>
+                    <label><input type="checkbox"> M</label>
+                </div>
+                <label class="concentration-label">
+                    <input type="checkbox" class="concentration-checkbox"> Concentration
+                </label>
+                <label class="ritual-label">
+                    <input type="checkbox" class="ritual-checkbox"> Ritual
+                </label>
+                <textarea placeholder="Spell description and notes..." rows="2" class="spell-description"></textarea>
+                <button onclick="removeSpell(this)" class="remove-spell-btn">❌</button>
+            `;
+            container.appendChild(newSpell);
+        }
+
+        // Remove spell
+        function removeSpell(button) {
+            button.parentElement.remove();
+        }
+
+        // Update spellcasting stats
+        function updateSpellcastingStats() {
+            const ability = document.getElementById('spellcasting-ability').value;
+            if (!ability) {
+                document.getElementById('spell-modifier').value = '';
+                document.getElementById('spell-save-dc').value = '';
+                document.getElementById('spell-attack-bonus').value = '';
+                return;
+            }
+
+            // Get ability modifier from stats page (would need to be passed or calculated)
+            // For now, using placeholder values
+            const profBonus = 2; // This should come from character level
+            let abilityMod = 0; // This should come from the ability score
+
+            // In a real implementation, you'd get these from the stats page
+            // abilityMod = getAbilityModifier(ability);
+
+            document.getElementById('spell-modifier').value = abilityMod >= 0 ? `+${abilityMod}` : abilityMod;
+            document.getElementById('spell-save-dc').value = 8 + profBonus + abilityMod;
+            document.getElementById('spell-attack-bonus').value = `+${profBonus + abilityMod}`;
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update spell slot boxes when total changes
+            for (let level = 1; level <= 9; level++) {
+                document.getElementById(`level${level}-total`).addEventListener('input', updateSlotBoxes);
+            }
+
+            // Update spellcasting stats when ability changes
+            document.getElementById('spellcasting-ability').addEventListener('change', updateSpellcastingStats);
+
+            // Initialize
+            updateSlotBoxes();
+            updateSpellcastingStats();
+        });
+    </script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

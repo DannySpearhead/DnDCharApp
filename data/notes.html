@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Notes</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="notes-container">
+        <!-- Character Appearance & Description -->
+        <section class="appearance-section">
+            <h2>👤 Character Appearance</h2>
+            <div class="appearance-grid">
+                <div class="appearance-field">
+                    <label for="age">Age:</label>
+                    <input type="text" id="age" placeholder="25 years old">
+                </div>
+                <div class="appearance-field">
+                    <label for="height">Height:</label>
+                    <input type="text" id="height" placeholder="5'8&quot;">
+                </div>
+                <div class="appearance-field">
+                    <label for="weight">Weight:</label>
+                    <input type="text" id="weight" placeholder="150 lbs">
+                </div>
+                <div class="appearance-field">
+                    <label for="eyes">Eyes:</label>
+                    <input type="text" id="eyes" placeholder="Blue">
+                </div>
+                <div class="appearance-field">
+                    <label for="hair">Hair:</label>
+                    <input type="text" id="hair" placeholder="Brown, shoulder-length">
+                </div>
+                <div class="appearance-field">
+                    <label for="skin">Skin:</label>
+                    <input type="text" id="skin" placeholder="Fair">
+                </div>
+            </div>
+            
+            <div class="physical-description">
+                <label for="physical-description">Physical Description:</label>
+                <textarea id="physical-description" placeholder="Describe your character's overall appearance, distinctive features, scars, tattoos, clothing style, etc..." rows="6"></textarea>
+            </div>
+        </section>
+
+        <!-- Personality & Backstory -->
+        <section class="personality-section">
+            <h2>🎭 Personality & Backstory</h2>
+            
+            <div class="personality-traits">
+                <h3>Personality Traits</h3>
+                <textarea id="personality-traits" placeholder="What are your character's quirks, habits, and mannerisms? How do they act around others?" rows="4"></textarea>
+            </div>
+
+            <div class="ideals">
+                <h3>Ideals</h3>
+                <textarea id="ideals" placeholder="What principles does your character believe in? What drives them?" rows="3"></textarea>
+            </div>
+
+            <div class="bonds">
+                <h3>Bonds</h3>
+                <textarea id="bonds" placeholder="What connects your character to the world? People, places, or things they care about?" rows="3"></textarea>
+            </div>
+
+            <div class="flaws">
+                <h3>Flaws</h3>
+                <textarea id="flaws" placeholder="What are your character's weaknesses or vices? What gets them into trouble?" rows="3"></textarea>
+            </div>
+
+            <div class="alignment-info">
+                <h3>Alignment</h3>
+                <select id="alignment">
+                    <option value="">Choose Alignment</option>
+                    <option value="LG">Lawful Good</option>
+                    <option value="NG">Neutral Good</option>
+                    <option value="CG">Chaotic Good</option>
+                    <option value="LN">Lawful Neutral</option>
+                    <option value="TN">True Neutral</option>
+                    <option value="CN">Chaotic Neutral</option>
+                    <option value="LE">Lawful Evil</option>
+                    <option value="NE">Neutral Evil</option>
+                    <option value="CE">Chaotic Evil</option>
+                </select>
+                <textarea id="alignment-description" placeholder="Explain how your character's alignment manifests in their behavior..." rows="3"></textarea>
+            </div>
+        </section>
+
+        <!-- Backstory -->
+        <section class="backstory-section">
+            <h2>📚 Character Backstory</h2>
+            
+            <div class="backstory-field">
+                <h3>Origin & Early Life</h3>
+                <textarea id="origin" placeholder="Where was your character born? What was their childhood like? Family background?" rows="5"></textarea>
+            </div>
+
+            <div class="backstory-field">
+                <h3>How They Became an Adventurer</h3>
+                <textarea id="adventure-start" placeholder="What event or motivation led your character to become an adventurer?" rows="4"></textarea>
+            </div>
+
+            <div class="backstory-field">
+                <h3>Goals & Motivations</h3>
+                <textarea id="goals" placeholder="What does your character want to achieve? What drives them forward?" rows="4"></textarea>
+            </div>
+
+            <div class="backstory-field">
+                <h3>Fears & Secrets</h3>
+                <textarea id="fears-secrets" placeholder="What is your character afraid of? Do they have any secrets?" rows="4"></textarea>
+            </div>
+        </section>
+
+        <!-- Relationships -->
+        <section class="relationships-section">
+            <h2>👥 Relationships & Contacts</h2>
+            
+            <div class="relationships-list" id="relationships-list">
+                <div class="relationship-entry">
+                    <div class="relationship-header">
+                        <input type="text" placeholder="Name" class="contact-name">
+                        <select class="relationship-type">
+                            <option value="family">Family</option>
+                            <option value="friend">Friend</option>
+                            <option value="ally">Ally</option>
+                            <option value="enemy">Enemy</option>
+                            <option value="rival">Rival</option>
+                            <option value="mentor">Mentor</option>
+                            <option value="contact">Contact</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <button onclick="removeRelationship(this)" class="remove-btn">❌</button>
+                    </div>
+                    <textarea placeholder="Describe the relationship and how you know this person..." rows="3" class="relationship-description"></textarea>
+                </div>
+            </div>
+            <button onclick="addRelationship()" class="add-relationship-btn">➕ Add Relationship</button>
+        </section>
+
+        <!-- Campaign Notes -->
+        <section class="campaign-notes-section">
+            <h2>📖 Campaign & Session Notes</h2>
+            
+            <div class="campaign-info">
+                <div class="campaign-field">
+                    <label for="campaign-name">Campaign Name:</label>
+                    <input type="text" id="campaign-name" placeholder="The Lost Mine of Phandelver">
+                </div>
+                <div class="campaign-field">
+                    <label for="dm-name">Dungeon Master:</label>
+                    <input type="text" id="dm-name" placeholder="DM Name">
+                </div>
+                <div class="campaign-field">
+                    <label for="party-members">Party Members:</label>
+                    <textarea id="party-members" placeholder="List your fellow adventurers..." rows="3"></textarea>
+                </div>
+            </div>
+
+            <div class="session-notes">
+                <h3>Session Notes</h3>
+                <div class="notes-tabs">
+                    <button class="note-tab active" onclick="showNoteTab('current', this)">Current Session</button>
+                    <button class="note-tab" onclick="showNoteTab('previous', this)">Previous Sessions</button>
+                    <button class="note-tab" onclick="showNoteTab('important', this)">Important Info</button>
+                </div>
+                
+                <div id="current-notes" class="note-content active">
+                    <h4>Current Session Notes</h4>
+                    <textarea id="current-session" placeholder="What happened in today's session? Important events, clues, NPCs met..." rows="8"></textarea>
+                </div>
+                
+                <div id="previous-notes" class="note-content">
+                    <h4>Previous Sessions Summary</h4>
+                    <textarea id="previous-sessions" placeholder="Summary of past sessions and ongoing plot threads..." rows="8"></textarea>
+                </div>
+                
+                <div id="important-notes" class="note-content">
+                    <h4>Important Information & Clues</h4>
+                    <textarea id="important-info" placeholder="Key clues, mysteries to solve, important NPCs, plot hooks..." rows="8"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- Character Goals & Development -->
+        <section class="character-development-section">
+            <h2>🎯 Character Development</h2>
+            
+            <div class="development-grid">
+                <div class="development-field">
+                    <h3>Short-term Goals</h3>
+                    <textarea id="short-term-goals" placeholder="What does your character want to accomplish soon?" rows="4"></textarea>
+                </div>
+                
+                <div class="development-field">
+                    <h3>Long-term Goals</h3>
+                    <textarea id="long-term-goals" placeholder="What are your character's ultimate ambitions?" rows="4"></textarea>
+                </div>
+                
+                <div class="development-field">
+                    <h3>Character Growth</h3>
+                    <textarea id="character-growth" placeholder="How has your character changed? What have they learned?" rows="4"></textarea>
+                </div>
+                
+                <div class="development-field">
+                    <h3>Future Plans</h3>
+                    <textarea id="future-plans" placeholder="Where do you want to take this character? Multiclassing? Story arcs?" rows="4"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- General Notes -->
+        <section class="general-notes-section">
+            <h2>📝 General Notes</h2>
+            <textarea id="general-notes" placeholder="Any other notes, reminders, or thoughts about your character..." rows="10"></textarea>
+        </section>
+
+        <!-- Save/Load Notes -->
+        <section class="notes-management">
+            <div class="save-load-buttons">
+                <button onclick="saveNotes()" class="save-btn">💾 Save Notes</button>
+                <button onclick="loadNotes(true)" class="load-btn">📂 Load Notes</button>
+                <button onclick="exportNotes()" class="export-btn">📄 Export Notes</button>
+                <button onclick="clearAllNotes()" class="clear-btn">🗑️ Clear All</button>
+            </div>
+            <div class="auto-save-status">
+                <span id="save-status">Auto-save: <span class="status-indicator">●</span> Ready</span>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Add relationship
+        function addRelationship() {
+            const container = document.getElementById('relationships-list');
+            const newRelationship = document.createElement('div');
+            newRelationship.className = 'relationship-entry';
+            newRelationship.innerHTML = `
+                <div class="relationship-header">
+                    <input type="text" placeholder="Name" class="contact-name">
+                    <select class="relationship-type">
+                        <option value="family">Family</option>
+                        <option value="friend">Friend</option>
+                        <option value="ally">Ally</option>
+                        <option value="enemy">Enemy</option>
+                        <option value="rival">Rival</option>
+                        <option value="mentor">Mentor</option>
+                        <option value="contact">Contact</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <button onclick="removeRelationship(this)" class="remove-btn">❌</button>
+                </div>
+                <textarea placeholder="Describe the relationship and how you know this person..." rows="3" class="relationship-description"></textarea>
+            `;
+            container.appendChild(newRelationship);
+        }
+
+        // Remove relationship
+        function removeRelationship(button) {
+            button.closest('.relationship-entry').remove();
+        }
+
+        // Show note tab
+        function showNoteTab(tabName, element) {
+            // Hide all note contents
+            document.querySelectorAll('.note-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.note-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected content and activate tab
+            document.getElementById(`${tabName}-notes`).classList.add('active');
+            if (element) {
+                element.classList.add('active');
+            }
+        }
+
+        // Save notes to localStorage
+        function saveNotes() {
+            const notesData = {};
+            
+            // Get all form inputs and textareas
+            document.querySelectorAll('input, textarea, select').forEach(element => {
+                if (element.id) {
+                    notesData[element.id] = element.value;
+                }
+            });
+
+            // Save relationships
+            const relationships = [];
+            document.querySelectorAll('.relationship-entry').forEach(entry => {
+                const name = entry.querySelector('.contact-name').value;
+                const type = entry.querySelector('.relationship-type').value;
+                const description = entry.querySelector('.relationship-description').value;
+                if (name || description) {
+                    relationships.push({ name, type, description });
+                }
+            });
+            notesData.relationships = relationships;
+
+            localStorage.setItem('dndCharacterNotes', JSON.stringify(notesData));
+            
+            document.getElementById('save-status').innerHTML = 'Auto-save: <span class="status-indicator saved">●</span> Saved';
+            setTimeout(() => {
+                document.getElementById('save-status').innerHTML = 'Auto-save: <span class="status-indicator">●</span> Ready';
+            }, 2000);
+        }
+
+        // Load notes from localStorage
+        function loadNotes(showAlert = true) {
+            const saved = localStorage.getItem('dndCharacterNotes');
+            if (saved) {
+                const notesData = JSON.parse(saved);
+                
+                // Load basic form data
+                Object.keys(notesData).forEach(key => {
+                    if (key !== 'relationships') {
+                        const element = document.getElementById(key);
+                        if (element) {
+                            element.value = notesData[key];
+                        }
+                    }
+                });
+
+                // Load relationships
+                if (notesData.relationships) {
+                    const container = document.getElementById('relationships-list');
+                    container.innerHTML = '';
+                    
+                    notesData.relationships.forEach(rel => {
+                        addRelationship();
+                        const entries = container.querySelectorAll('.relationship-entry');
+                        const lastEntry = entries[entries.length - 1];
+                        lastEntry.querySelector('.contact-name').value = rel.name;
+                        lastEntry.querySelector('.relationship-type').value = rel.type;
+                        lastEntry.querySelector('.relationship-description').value = rel.description;
+                    });
+                }
+                
+                if (showAlert) {
+                    alert('Notes loaded successfully!');
+                }
+            } else {
+                if (showAlert) {
+                    alert('No saved notes found.');
+                }
+            }
+        }
+
+        // Export notes as text
+        function exportNotes() {
+            const notesData = {};
+            document.querySelectorAll('input, textarea, select').forEach(element => {
+                if (element.id && element.value) {
+                    notesData[element.id] = element.value;
+                }
+            });
+
+            let exportText = "D&D CHARACTER NOTES\n";
+            exportText += "===================\n\n";
+            
+            exportText += "APPEARANCE:\n";
+            exportText += `Age: ${notesData.age || 'Not specified'}\n`;
+            exportText += `Height: ${notesData.height || 'Not specified'}\n`;
+            exportText += `Weight: ${notesData.weight || 'Not specified'}\n`;
+            exportText += `Eyes: ${notesData.eyes || 'Not specified'}\n`;
+            exportText += `Hair: ${notesData.hair || 'Not specified'}\n`;
+            exportText += `Skin: ${notesData.skin || 'Not specified'}\n`;
+            exportText += `Description: ${notesData['physical-description'] || 'Not provided'}\n\n`;
+            
+            exportText += "PERSONALITY:\n";
+            exportText += `Traits: ${notesData['personality-traits'] || 'Not specified'}\n`;
+            exportText += `Ideals: ${notesData.ideals || 'Not specified'}\n`;
+            exportText += `Bonds: ${notesData.bonds || 'Not specified'}\n`;
+            exportText += `Flaws: ${notesData.flaws || 'Not specified'}\n`;
+            exportText += `Alignment: ${notesData.alignment || 'Not specified'}\n\n`;
+            
+            exportText += "BACKSTORY:\n";
+            exportText += `Origin: ${notesData.origin || 'Not provided'}\n`;
+            exportText += `Adventure Start: ${notesData['adventure-start'] || 'Not provided'}\n`;
+            exportText += `Goals: ${notesData.goals || 'Not provided'}\n\n`;
+            
+            exportText += "NOTES:\n";
+            exportText += `General Notes: ${notesData['general-notes'] || 'No notes'}\n`;
+
+            // Create and download file
+            const blob = new Blob([exportText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'character-notes.txt';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Clear all notes
+        function clearAllNotes() {
+            if (confirm('Are you sure you want to clear all notes? This cannot be undone.')) {
+                document.querySelectorAll('input, textarea, select').forEach(element => {
+                    if (element.type !== 'button') {
+                        element.value = '';
+                    }
+                });
+                document.getElementById('relationships-list').innerHTML = `
+                    <div class="relationship-entry">
+                        <div class="relationship-header">
+                            <input type="text" placeholder="Name" class="contact-name">
+                            <select class="relationship-type">
+                                <option value="family">Family</option>
+                                <option value="friend">Friend</option>
+                                <option value="ally">Ally</option>
+                                <option value="enemy">Enemy</option>
+                                <option value="rival">Rival</option>
+                                <option value="mentor">Mentor</option>
+                                <option value="contact">Contact</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <button onclick="removeRelationship(this)" class="remove-btn">❌</button>
+                        </div>
+                        <textarea placeholder="Describe the relationship and how you know this person..." rows="3" class="relationship-description"></textarea>
+                    </div>
+                `;
+                localStorage.removeItem('dndCharacterNotes');
+                alert('All notes cleared.');
+            }
+        }
+
+        // Auto-save every 30 seconds
+        let autoSaveInterval;
+        
+        function startAutoSave() {
+            autoSaveInterval = setInterval(() => {
+                saveNotes();
+            }, 30000); // 30 seconds
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadNotes(false); // Don't show alert on auto-load
+            startAutoSave();
+            
+            // Save on any input change
+            document.addEventListener('input', function() {
+                clearTimeout(window.saveTimeout);
+                window.saveTimeout = setTimeout(saveNotes, 2000); // Save 2 seconds after last change
+            });
+        });
+
+        // Save before leaving page
+        window.addEventListener('beforeunload', function() {
+            saveNotes();
+        });
+    </script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

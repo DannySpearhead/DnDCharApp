@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment & Inventory</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="equipment-container">
+        <!-- Equipment Training & Proficiencies -->
+        <section class="proficiencies-section">
+            <div class="proficiency-grid">
+                <div class="armor-training">
+                    <h3>Armor Training</h3>
+                    <div class="proficiency-checkboxes">
+                        <label><input type="checkbox" id="light-armor"> Light Armor</label>
+                        <label><input type="checkbox" id="medium-armor"> Medium Armor</label>
+                        <label><input type="checkbox" id="heavy-armor"> Heavy Armor</label>
+                        <label><input type="checkbox" id="shields"> Shields</label>
+                    </div>
+                </div>
+
+                <div class="weapon-training">
+                    <h3>Weapon Training</h3>
+                    <textarea id="weapon-proficiencies" placeholder="List weapon proficiencies here...
+Example: Simple weapons, martial weapons, longswords, rapiers..." rows="4"></textarea>
+                </div>
+
+                <div class="tool-training">
+                    <h3>Tools</h3>
+                    <textarea id="tool-proficiencies" placeholder="List tool proficiencies here...
+Example: Thieves' tools, Smith's tools, Herbalism kit..." rows="4"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- Currency -->
+        <section class="currency-section">
+            <h3>💰 Currency</h3>
+            <div class="coin-container">
+                <div class="coin-type">
+                    <label>CP</label>
+                    <input type="number" id="copper" value="0" min="0" class="coin-input">
+                </div>
+                <div class="coin-type">
+                    <label>SP</label>
+                    <input type="number" id="silver" value="0" min="0" class="coin-input">
+                </div>
+                <div class="coin-type">
+                    <label>EP</label>
+                    <input type="number" id="electrum" value="0" min="0" class="coin-input">
+                </div>
+                <div class="coin-type">
+                    <label>GP</label>
+                    <input type="number" id="gold" value="0" min="0" class="coin-input">
+                </div>
+                <div class="coin-type">
+                    <label>PP</label>
+                    <input type="number" id="platinum" value="0" min="0" class="coin-input">
+                </div>
+            </div>
+            <div class="total-value">
+                <strong>Total Value: <span id="total-gold-value">0</span> GP</strong>
+            </div>
+        </section>
+
+        <!-- Equipment Inventory -->
+        <section class="inventory-section">
+            <h3>⚔️ Equipment & Inventory</h3>
+            
+            <!-- Worn Equipment -->
+            <div class="worn-equipment">
+                <h4>Currently Equipped</h4>
+                <div class="equipment-slots">
+                    <div class="equipment-slot">
+                        <label>Armor:</label>
+                        <input type="text" id="equipped-armor" placeholder="Leather armor, Chain mail, etc.">
+                        <span class="ac-bonus">AC: <input type="number" id="armor-ac" value="0" min="0" max="20" class="small-input"></span>
+                    </div>
+                    <div class="equipment-slot">
+                        <label>Shield:</label>
+                        <input type="text" id="equipped-shield" placeholder="Shield name">
+                        <span class="ac-bonus">AC: <input type="number" id="shield-ac" value="0" min="0" max="5" class="small-input"></span>
+                    </div>
+                    <div class="equipment-slot">
+                        <label>Main Hand:</label>
+                        <input type="text" id="main-hand-weapon" placeholder="Weapon name">
+                    </div>
+                    <div class="equipment-slot">
+                        <label>Off Hand:</label>
+                        <input type="text" id="off-hand-weapon" placeholder="Weapon/Shield">
+                    </div>
+                    <div class="equipment-slot">
+                        <label>Ranged:</label>
+                        <input type="text" id="ranged-weapon" placeholder="Bow, crossbow, etc.">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inventory List -->
+            <div class="inventory-list">
+                <h4>Inventory</h4>
+                <div class="inventory-header">
+                    <span>Item Name</span>
+                    <span>Quantity</span>
+                    <span>Weight (lbs)</span>
+                    <span>Value (GP)</span>
+                    <span>Notes</span>
+                    <span>Action</span>
+                </div>
+                
+                <div id="inventory-items">
+                    <!-- Dynamic inventory items will be added here -->
+                    <div class="inventory-item">
+                        <input type="text" placeholder="Item name" class="item-input">
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <input type="number" value="0" min="0" step="0.1" class="weight-input">
+                        <input type="number" value="0" min="0" step="0.01" class="value-input">
+                        <input type="text" placeholder="Notes" class="notes-input">
+                        <button onclick="removeItem(this)" class="remove-btn">❌</button>
+                    </div>
+                    <div class="inventory-item">
+                        <input type="text" placeholder="Item name" class="item-input">
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <input type="number" value="0" min="0" step="0.1" class="weight-input">
+                        <input type="number" value="0" min="0" step="0.01" class="value-input">
+                        <input type="text" placeholder="Notes" class="notes-input">
+                        <button onclick="removeItem(this)" class="remove-btn">❌</button>
+                    </div>
+                    <div class="inventory-item">
+                        <input type="text" placeholder="Item name" class="item-input">
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <input type="number" value="0" min="0" step="0.1" class="weight-input">
+                        <input type="number" value="0" min="0" step="0.01" class="value-input">
+                        <input type="text" placeholder="Notes" class="notes-input">
+                        <button onclick="removeItem(this)" class="remove-btn">❌</button>
+                    </div>
+                </div>
+
+                <button onclick="addInventoryItem()" class="add-item-btn">➕ Add Item</button>
+            </div>
+
+            <!-- Carrying Capacity -->
+            <div class="carrying-capacity">
+                <h4>Carrying Capacity</h4>
+                <div class="capacity-info">
+                    <div class="capacity-stat">
+                        <label>Current Weight:</label>
+                        <span id="current-weight">0</span> lbs
+                    </div>
+                    <div class="capacity-stat">
+                        <label>Carrying Capacity:</label>
+                        <span id="max-capacity">150</span> lbs (STR × 15)
+                    </div>
+                    <div class="capacity-stat">
+                        <label>Push/Drag/Lift:</label>
+                        <span id="max-push-drag">300</span> lbs (STR × 30)
+                    </div>
+                </div>
+                <div class="capacity-bar">
+                    <div id="weight-bar" class="weight-progress"></div>
+                </div>
+                <div class="capacity-status" id="capacity-status">✅ Normal carrying capacity</div>
+            </div>
+        </section>
+
+        <!-- Magic Items -->
+        <section class="magic-items-section">
+            <h3>✨ Magic Items</h3>
+            
+            <div class="attunement-section">
+                <h4>Magic Item Attunement</h4>
+                <p class="attunement-info">You can attune to a maximum of 3 magic items.</p>
+                
+                <div class="attunement-slots">
+                    <div class="attunement-slot">
+                        <input type="text" placeholder="Magic item name" class="magic-item-input">
+                        <input type="checkbox" id="attune-1">
+                        <label for="attune-1">Attuned</label>
+                        <textarea placeholder="Item description and properties..." rows="2" class="item-description"></textarea>
+                    </div>
+                    <div class="attunement-slot">
+                        <input type="text" placeholder="Magic item name" class="magic-item-input">
+                        <input type="checkbox" id="attune-2">
+                        <label for="attune-2">Attuned</label>
+                        <textarea placeholder="Item description and properties..." rows="2" class="item-description"></textarea>
+                    </div>
+                    <div class="attunement-slot">
+                        <input type="text" placeholder="Magic item name" class="magic-item-input">
+                        <input type="checkbox" id="attune-3">
+                        <label for="attune-3">Attuned</label>
+                        <textarea placeholder="Item description and properties..." rows="2" class="item-description"></textarea>
+                    </div>
+                </div>
+                
+                <div class="attunement-counter">
+                    <strong>Attuned Items: <span id="attuned-count">0</span>/3</strong>
+                </div>
+            </div>
+
+            <div class="other-magic-items">
+                <h4>Other Magic Items (Not Attuned)</h4>
+                <textarea placeholder="List other magic items here..." rows="4" class="magic-items-list"></textarea>
+            </div>
+        </section>
+
+        <!-- Equipment Sets -->
+        <section class="equipment-sets-section">
+            <h3>🎒 Equipment Sets</h3>
+            <p class="sets-info">Create different equipment loadouts for different situations.</p>
+            
+            <div class="equipment-sets">
+                <div class="equipment-set">
+                    <h4>Combat Loadout</h4>
+                    <textarea placeholder="Armor, weapons, and gear for combat..." rows="3"></textarea>
+                    <button class="load-set-btn">Load This Set</button>
+                </div>
+                <div class="equipment-set">
+                    <h4>Exploration Loadout</h4>
+                    <textarea placeholder="Gear for dungeon exploration and travel..." rows="3"></textarea>
+                    <button class="load-set-btn">Load This Set</button>
+                </div>
+                <div class="equipment-set">
+                    <h4>Social Loadout</h4>
+                    <textarea placeholder="Clothes and items for social encounters..." rows="3"></textarea>
+                    <button class="load-set-btn">Load This Set</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Add new inventory item
+        function addInventoryItem() {
+            const container = document.getElementById('inventory-items');
+            const newItem = document.createElement('div');
+            newItem.className = 'inventory-item';
+            newItem.innerHTML = `
+                <input type="text" placeholder="Item name" class="item-input">
+                <input type="number" value="1" min="1" class="qty-input">
+                <input type="number" value="0" min="0" step="0.1" class="weight-input">
+                <input type="number" value="0" min="0" step="0.01" class="value-input">
+                <input type="text" placeholder="Notes" class="notes-input">
+                <button onclick="removeItem(this)" class="remove-btn">❌</button>
+            `;
+            container.appendChild(newItem);
+            updateCarryingCapacity();
+        }
+
+        // Remove inventory item
+        function removeItem(button) {
+            button.parentElement.remove();
+            updateCarryingCapacity();
+        }
+
+        // Update carrying capacity calculation
+        function updateCarryingCapacity() {
+            const weightInputs = document.querySelectorAll('.weight-input');
+            const qtyInputs = document.querySelectorAll('.qty-input');
+            let totalWeight = 0;
+
+            weightInputs.forEach((weightInput, index) => {
+                const weight = parseFloat(weightInput.value) || 0;
+                const qty = parseInt(qtyInputs[index].value) || 1;
+                totalWeight += weight * qty;
+            });
+
+            document.getElementById('current-weight').textContent = totalWeight.toFixed(1);
+            
+            // Update capacity bar and status
+            const maxCapacity = parseInt(document.getElementById('max-capacity').textContent);
+            const percentage = (totalWeight / maxCapacity) * 100;
+            
+            const weightBar = document.getElementById('weight-bar');
+            const status = document.getElementById('capacity-status');
+            
+            weightBar.style.width = Math.min(percentage, 100) + '%';
+            
+            if (percentage <= 100) {
+                weightBar.className = 'weight-progress normal';
+                status.textContent = '✅ Normal carrying capacity';
+                status.className = 'capacity-status normal';
+            } else {
+                weightBar.className = 'weight-progress overloaded';
+                status.textContent = '⚠️ Overloaded! Speed reduced';
+                status.className = 'capacity-status overloaded';
+            }
+        }
+
+        // Update total currency value
+        function updateTotalValue() {
+            const copper = parseInt(document.getElementById('copper').value) || 0;
+            const silver = parseInt(document.getElementById('silver').value) || 0;
+            const electrum = parseInt(document.getElementById('electrum').value) || 0;
+            const gold = parseInt(document.getElementById('gold').value) || 0;
+            const platinum = parseInt(document.getElementById('platinum').value) || 0;
+
+            const totalGold = (copper * 0.01) + (silver * 0.1) + (electrum * 0.5) + gold + (platinum * 10);
+            document.getElementById('total-gold-value').textContent = totalGold.toFixed(2);
+        }
+
+        // Update attunement counter
+        function updateAttunementCount() {
+            const checkboxes = document.querySelectorAll('[id^="attune-"]');
+            let count = 0;
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) count++;
+            });
+            document.getElementById('attuned-count').textContent = count;
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Currency updates
+            document.querySelectorAll('.coin-input').forEach(input => {
+                input.addEventListener('input', updateTotalValue);
+            });
+
+            // Weight updates
+            document.addEventListener('input', function(e) {
+                if (e.target.classList.contains('weight-input') || e.target.classList.contains('qty-input')) {
+                    updateCarryingCapacity();
+                }
+            });
+
+            // Attunement updates
+            document.querySelectorAll('[id^="attune-"]').forEach(checkbox => {
+                checkbox.addEventListener('change', updateAttunementCount);
+            });
+
+            // Initial calculations
+            updateCarryingCapacity();
+            updateTotalValue();
+            updateAttunementCount();
+        });
+    </script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

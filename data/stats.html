@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Stats</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="stats-container">
+        <!-- Character Basic Info -->
+        <section class="character-header">
+            <div class="basic-info">
+                <input type="text" id="character-name" placeholder="Character Name" class="character-name-input">
+                <div class="info-row">
+                    <input type="text" id="background" placeholder="Background" class="info-input">
+                    <input type="text" id="class" placeholder="Class" class="info-input">
+                    <input type="number" id="level" placeholder="Level" class="info-input small" min="1" max="20">
+                </div>
+                <div class="info-row">
+                    <input type="text" id="species" placeholder="Species" class="info-input">
+                    <input type="text" id="subclass" placeholder="Subclass" class="info-input">
+                    <input type="number" id="xp" placeholder="XP" class="info-input">
+                </div>
+            </div>
+            
+            <div class="core-stats">
+                <div class="stat-block">
+                    <label>Armor Class</label>
+                    <input type="number" id="armor-class" class="stat-input">
+                </div>
+                <div class="stat-block">
+                    <label>Hit Points</label>
+                    <div class="hp-container">
+                        <input type="number" id="current-hp" placeholder="Current" class="stat-input small">
+                        <span>/</span>
+                        <input type="number" id="max-hp" placeholder="Max" class="stat-input small">
+                        <input type="number" id="temp-hp" placeholder="Temp" class="stat-input small">
+                    </div>
+                </div>
+                <div class="stat-block">
+                    <label>Proficiency Bonus</label>
+                    <input type="number" id="proficiency-bonus" class="stat-input" value="2">
+                </div>
+            </div>
+        </section>
+
+        <!-- Ability Scores and Skills -->
+        <section class="abilities-section">
+            <div class="ability-scores">
+                <!-- Strength -->
+                <div class="ability-block">
+                    <h3>Strength</h3>
+                    <input type="number" id="str-score" class="ability-score" value="10" min="1" max="30">
+                    <div class="ability-modifier" id="str-modifier">+0</div>
+                    <div class="saving-throw">
+                        <input type="checkbox" id="str-save-prof">
+                        <label for="str-save-prof">Saving Throw</label>
+                        <span class="save-bonus" id="str-save">+0</span>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill">
+                            <input type="checkbox" id="athletics">
+                            <label for="athletics">Athletics</label>
+                            <span class="skill-bonus" id="athletics-bonus">+0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dexterity -->
+                <div class="ability-block">
+                    <h3>Dexterity</h3>
+                    <input type="number" id="dex-score" class="ability-score" value="10" min="1" max="30">
+                    <div class="ability-modifier" id="dex-modifier">+0</div>
+                    <div class="saving-throw">
+                        <input type="checkbox" id="dex-save-prof">
+                        <label for="dex-save-prof">Saving Throw</label>
+                        <span class="save-bonus" id="dex-save">+0</span>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill">
+                            <input type="checkbox" id="acrobatics">
+                            <label for="acrobatics">Acrobatics</label>
+                            <span class="skill-bonus" id="acrobatics-bonus">+0</span>
+                        </div>
+                        <div class="skill">
+                            <input type="checkbox" id="sleight-of-hand">
+                            <label for="sleight-of-hand">Sleight of Hand</label>
+                            <span class="skill-bonus" id="sleight-bonus">+0</span>
+                        </div>
+                        <div class="skill">
+                            <input type="checkbox" id="stealth">
+                            <label for="stealth">Stealth</label>
+                            <span class="skill-bonus" id="stealth-bonus">+0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Constitution -->
+                <div class="ability-block">
+                    <h3>Constitution</h3>
+                    <input type="number" id="con-score" class="ability-score" value="10" min="1" max="30">
+                    <div class="ability-modifier" id="con-modifier">+0</div>
+                    <div class="saving-throw">
+                        <input type="checkbox" id="con-save-prof">
+                        <label for="con-save-prof">Saving Throw</label>
+                        <span class="save-bonus" id="con-save">+0</span>
+                    </div>
+                </div>
+
+                <!-- Intelligence -->
+                <div class="ability-block">
+                    <h3>Intelligence</h3>
+                    <input type="number" id="int-score" class="ability-score" value="10" min="1" max="30">
+                    <div class="ability-modifier" id="int-modifier">+0</div>
+                    <div class="saving-throw">
+                        <input type="checkbox" id="int-save-prof">
+                        <label for="int-save-prof">Saving Throw</label>
+                        <span class="save-bonus" id="int-save">+0</span>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill">
+                            <input type="checkbox" id="arcana">
+                            <label for="arcana">Arcana</label>
+                            <span class="skill-bonus" id="arcana-bonus">+0</span>
+                        </div>
+                        <div class="skill">
+                            <input type="checkbox" id="history">
+                            <label for="history">History</label>
+                            <span class="skill-bonus" id="history-bonus">+0</span>
+                        </div>
+                        <div class="skill">
+                            <input type="checkbox" id="investigation">
+                            <label for="investigation">Investigation</label>
+                            <span class="skill-bonus" id="investigation-bonus">+0</span>
+                        </div>
+                        <div class="skill">
+                            <input type="checkbox" id="nature">
+                            <label for="nature">Nature</label>
+                            <span class="skill-bonus" id="nature-bonus">+0</span>
+                        </div>
+                        <div class="skill">
+                            <input type="checkbox" id="religion">
+                            <label for="religion">Religion</label>
+                            <span class="skill-bonus" id="religion-bonus">+0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wisdom -->
+                <div class="ability-block">
+                    <h3>Wisdom</h3>
+                    <input type="number" id="wis-score" class="ability-score" value="10" min="1" max="30">
+                    <div class="ability-modifier" id="wis-modifier">+0</div>
+                    <div class="saving-throw">
+                        <input type="checkbox" id="wis-save-prof">
+                        <label for="wis-save-prof">Saving Throw</label>
+                        <span class="save-bonus" id="wis-save">+0</span>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill">
+                            <input type="checkbox" id="animal-handling">
+                            <label for="animal-handling">Animal Handling</label>
+                            <span class="skill-bonus" id="animal-bonus">+0</span>
+                        </div>
+                        <div class="skill">
+                            <input type="checkbox" id="insight">
+                            <label for="insight">Insight</label>
+                            <span class="skill-bonus" id="insight-bonus">+0</span>
+                        </div>
+                        <div class="skill">
+                            <input type="checkbox" id="medicine">
+                            <label for="medicine">Medicine</label>
+                            <span class="skill-bonus" id="medicine-bonus">+0</span>
+                        </div>
+                        <div class="skill">
+                            <input type="checkbox" id="perception">
+                            <label for="perception">Perception</label>
+                            <span class="skill-bonus" id="perception-bonus">+0</span>
+                        </div>
+                        <div class="skill">
+                            <input type="checkbox" id="survival">
+                            <label for="survival">Survival</label>
+                            <span class="skill-bonus" id="survival-bonus">+0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charisma -->
+                <div class="ability-block">
+                    <h3>Charisma</h3>
+                    <input type="number" id="cha-score" class="ability-score" value="10" min="1" max="30">
+                    <div class="ability-modifier" id="cha-modifier">+0</div>
+                    <div class="saving-throw">
+                        <input type="checkbox" id="cha-save-prof">
+                        <label for="cha-save-prof">Saving Throw</label>
+                        <span class="save-bonus" id="cha-save">+0</span>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill">
+                            <input type="checkbox" id="deception">
+                            <label for="deception">Deception</label>
+                            <span class="skill-bonus" id="deception-bonus">+0</span>
+                        </div>
+                        <div class="skill">
+                            <input type="checkbox" id="intimidation">
+                            <label for="intimidation">Intimidation</label>
+                            <span class="skill-bonus" id="intimidation-bonus">+0</span>
+                        </div>
+                        <div class="skill">
+                            <input type="checkbox" id="performance">
+                            <label for="performance">Performance</label>
+                            <span class="skill-bonus" id="performance-bonus">+0</span>
+                        </div>
+                        <div class="skill">
+                            <input type="checkbox" id="persuasion">
+                            <label for="persuasion">Persuasion</label>
+                            <span class="skill-bonus" id="persuasion-bonus">+0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Stats -->
+        <section class="additional-stats">
+            <div class="secondary-stats">
+                <div class="stat-block">
+                    <label>Initiative</label>
+                    <input type="number" id="initiative" class="stat-input">
+                </div>
+                <div class="stat-block">
+                    <label>Speed</label>
+                    <input type="number" id="speed" class="stat-input" value="30">
+                </div>
+                <div class="stat-block">
+                    <label>Size</label>
+                    <select id="size" class="stat-input">
+                        <option value="Small">Small</option>
+                        <option value="Medium" selected>Medium</option>
+                        <option value="Large">Large</option>
+                    </select>
+                </div>
+                <div class="stat-block">
+                    <label>Passive Perception</label>
+                    <input type="number" id="passive-perception" class="stat-input" readonly>
+                </div>
+            </div>
+
+            <div class="death-saves">
+                <h4>Death Saves</h4>
+                <div class="saves-row">
+                    <label>Successes:</label>
+                    <input type="checkbox" id="death-save-success-1">
+                    <input type="checkbox" id="death-save-success-2">
+                    <input type="checkbox" id="death-save-success-3">
+                </div>
+                <div class="saves-row">
+                    <label>Failures:</label>
+                    <input type="checkbox" id="death-save-failure-1">
+                    <input type="checkbox" id="death-save-failure-2">
+                    <input type="checkbox" id="death-save-failure-3">
+                </div>
+            </div>
+
+            <div class="inspiration">
+                <label>Heroic Inspiration</label>
+                <input type="checkbox" id="heroic-inspiration">
+            </div>
+        </section>
+
+        <!-- Weapons and Damage -->
+        <section class="weapons-section">
+            <h3>Weapons & Damage</h3>
+            <div class="weapons-table">
+                <div class="weapon-header">
+                    <span>Name</span>
+                    <span>Atk Bonus</span>
+                    <span>Damage & Type</span>
+                    <span>Notes</span>
+                </div>
+                <div class="weapon-row">
+                    <input type="text" placeholder="Weapon name" class="weapon-input">
+                    <input type="text" placeholder="+5" class="weapon-input small">
+                    <input type="text" placeholder="1d8+3 slashing" class="weapon-input">
+                    <input type="text" placeholder="Versatile" class="weapon-input">
+                </div>
+                <div class="weapon-row">
+                    <input type="text" placeholder="Weapon name" class="weapon-input">
+                    <input type="text" placeholder="+5" class="weapon-input small">
+                    <input type="text" placeholder="1d8+3 slashing" class="weapon-input">
+                    <input type="text" placeholder="Versatile" class="weapon-input">
+                </div>
+                <div class="weapon-row">
+                    <input type="text" placeholder="Weapon name" class="weapon-input">
+                    <input type="text" placeholder="+5" class="weapon-input small">
+                    <input type="text" placeholder="1d8+3 slashing" class="weapon-input">
+                    <input type="text" placeholder="Versatile" class="weapon-input">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features and Traits -->
+        <section class="features-section">
+            <div class="features-grid">
+                <div class="feature-box">
+                    <h4>Class Features</h4>
+                    <textarea placeholder="Enter class features here..." rows="6"></textarea>
+                </div>
+                <div class="feature-box">
+                    <h4>Species Traits</h4>
+                    <textarea placeholder="Enter species traits here..." rows="6"></textarea>
+                </div>
+                <div class="feature-box">
+                    <h4>Feats</h4>
+                    <textarea placeholder="Enter feats here..." rows="6"></textarea>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
